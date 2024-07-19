@@ -169,7 +169,7 @@ export default () => {
               renderProxiesInTwoColumns() ? 'sm:grid-cols-2' : 'sm:grid-cols-1',
             )}
           >
-            <For each={proxies()}>
+            <For each={proxies().filter((p) => p.hidden !== true)}>
               {(proxyGroup) => {
                 const sortedProxyNames = createMemo(() =>
                   filterProxiesByAvailability(
